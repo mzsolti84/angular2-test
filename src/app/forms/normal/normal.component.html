@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" data-cy="normal-form">
+<h1>Bejegyzés hozzáadása</h1>
+<h2>Normal form</h2>
+<form [formGroup]="form" (ngSubmit)="submitForm()" fxLayout="column" data-cy="form">
+
+  value: {{ form.value | json }}
+
+  <hr>
+
+  <mat-form-field data-cy="title">
+    <mat-label>Cím</mat-label>
+    <input matInput formControlName="title">
+    <mat-error>{{ errorMessageTitle }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field data-cy="body">
+    <mat-label>Tartalom</mat-label>
+    <textarea matInput formControlName="body"></textarea>
+    <mat-error>{{ errorMessageBody }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field data-cy="userId">
+    <mat-label>Felhasználó</mat-label>
+    <mat-select formControlName="userId">
+      @for (userName of userNames; track $index) {
+        <mat-option value="{{ $index + 1 }}">{{ userName }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid" data-cy="submitButton">Küldés</button>
+</form>
+</div>

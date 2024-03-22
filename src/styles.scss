@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import "theme.scss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$accent: map-get($theme, accent);
+
+.header {
+  height: 5px;
+  background-color: purple;
+}
+
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+p {
+  &.footer {
+    font-size: 16px;
+    font-weight: lighter;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+h1 {
+  &.title {
+    font-weight: 300 !important;
+    font-size: 40px !important;
+    flex: 1 1 auto;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+}
+
+span {
+  &.color {
+    color: purple;
+  }
+}
+
+a {
+  color: purple;
+  cursor: pointer;
+}
+
+a:hover {
+  color: darken($color: #B0C4DE, $amount: 20);
+}
+
+.content {
+  padding: 1rem;
+  border-radius: 1rem;
+
+  h2 {
+    font-weight: 300 !important;
+    font-size: 30px !important;
+    letter-spacing: 3px;
+  }
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}

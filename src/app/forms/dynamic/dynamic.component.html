@@ -1,0 +1,46 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" data-cy="dynamic-form">
+  <h1>Bejegyzés hozzáadása</h1>
+  <h2>Dynamic form</h2>
+  <form [formGroup]="dynamicForm" fxLayout="column" data-cy="form">
+
+    value: {{ dynamicForm.value | json }}
+
+    <hr>
+
+    <mat-form-field data-cy="title">
+      <mat-label>Cím</mat-label>
+      <input matInput formControlName="title">
+      <mat-error>{{ errorMessageTitle }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field data-cy="body">
+      <mat-label>Tartalom</mat-label>
+      <textarea matInput formControlName="body"></textarea>
+      <mat-error>{{ errorMessageBody }}</mat-error>
+    </mat-form-field>
+
+    <div formArrayName="users">
+      <div *ngFor="let user of userForm.controls; let i = index" [formGroupName]="i" flexLayout="row"
+        fxLayoutAlign="space-between center">
+        <mat-form-field id="{{'userID' + i}}">
+          <mat-label>Id</mat-label>
+          <input matInput formControlName="userId">
+        </mat-form-field>
+    
+        <mat-form-field id="{{'name' + i}}">
+          <mat-label>Név</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+    
+        <button type="button" mat-raised-button color="warn" (click)="deleteUser(i)" id="{{'delete' + i}}">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+        </div>
+    </div>
+
+    <button class="icon-text" type="button" mat-raised-button color="primary" (click)="addUser()" data-cy="addUser">
+      <mat-icon>add_circle</mat-icon>
+      <span>Felhasználó hozzáadása</span>
+    </button>
+  </form>
+</div>

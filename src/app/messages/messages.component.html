@@ -1,0 +1,7 @@
+<h2>Üzenetek</h2>
+<ul class="messages">
+  @for (message of model; track message.id) {
+  <li (click)="onSelect(message)"><span class="badge">{{message.id}}</span> {{message.title}}
+  </li>
+  }
+</ul>
