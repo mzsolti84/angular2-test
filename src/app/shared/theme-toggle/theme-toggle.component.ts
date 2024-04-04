@@ -9,11 +9,11 @@ import { ThemeService } from '../services/theme.service';
 export class ThemeToggleComponent {
   isDarkMode: boolean;
 
-  constructor(private themeService: ThemeService) {
+  constructor(public themeService: ThemeService) {
     this.isDarkMode = this.themeService.isDarkMode();
   }
 
-  toggleTheme() {
+  public toggleTheme(): void {
     this.isDarkMode = !this.isDarkMode;
     this.themeService.setDarkMode(this.isDarkMode);
   }

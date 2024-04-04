@@ -1,3 +1,6 @@
-<button type="button" mat-icon-button (click)="toggleTheme()">
+<button type="button" mat-icon-button (click)="toggleTheme()" data-cy="theme-toggle-button">
   <mat-icon>{{ isDarkMode ? 'wb_sunny' : 'nights_stay' }}</mat-icon>
 </button>
+<div>
+  <span data-cy="toggle-label">{{ isDarkMode ? 'Dark' : 'Light' }}</span>
+</div>

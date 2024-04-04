@@ -1,28 +1,28 @@
 import Chainable = Cypress.Chainable;
 
-export class BaseComponent {
+export class BaseTestComponent {
   constructor(private locator: string) {}
 
   public get componentRef(): Chainable {
     return cy.get(this.locator);
   }
 
-  click(): BaseComponent {
+  click(): BaseTestComponent {
     this.componentRef.click();
     return this;
   }
 
-  isVisible(): BaseComponent {
+  isVisible(): BaseTestComponent {
     this.componentRef.should('be.visible');
     return this;
   }
 
-  isEnabled(): BaseComponent {
+  isEnabled(): BaseTestComponent {
     this.componentRef.should('be.enabled');
     return this;
   }
 
-  isDisabled(): BaseComponent {
+  isDisabled(): BaseTestComponent {
     this.componentRef.should('be.disabled');
     return this;
   }

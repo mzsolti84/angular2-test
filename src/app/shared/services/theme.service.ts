@@ -4,24 +4,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ThemeService {
-  
-  private darkMode = false;
-  
+  private darkMode: boolean = false;
+
   constructor() {}
-  
-  isDarkMode() {
+
+  public isDarkMode(): boolean {
     return this.darkMode;
   }
 
-  setDarkMode(isDarkMode: boolean) {
+  public setDarkMode(isDarkMode: boolean): void {
     this.darkMode = isDarkMode;
-    let footer = document.getElementById('footer')!;
-    if (isDarkMode) {
-      document.body.classList.add('dark-theme');
-      footer.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-      footer.classList.remove('dark-theme');
-    }
+    const footer: HTMLElement | null = document.querySelector('footer');
+    document.body.classList.toggle('dark-theme', isDarkMode);
+    footer?.classList.toggle('dark-theme', isDarkMode);
   }
 }

@@ -37,7 +37,6 @@ import { ThemeToggleComponent } from './shared/theme-toggle/theme-toggle.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
 
     //App
