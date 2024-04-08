@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from './modals/message.model';
+import { IMessage } from './modals/message.model';
 import { Router } from '@angular/router';
 import { MessageService } from '../shared/services/message.service';
 
@@ -11,11 +11,11 @@ import { MessageService } from '../shared/services/message.service';
 export class MessagesComponent implements OnInit {
   constructor(private router: Router, private messageService: MessageService) {}
 
-  public onSelect(message: Message) {
+  public onSelect(message: IMessage) {
     this.router.navigate(['/message', message.id]);
   }
 
-  model: Array<Message> = [];
+  model: Array<IMessage> = [];
 
   ngOnInit() {
     this.messageService.getMessages().subscribe((data) => {

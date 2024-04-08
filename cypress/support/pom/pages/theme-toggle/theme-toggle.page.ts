@@ -13,7 +13,7 @@ export class ThemeToggleTestPage {
   }
 
   protected elements = {
-    label: (): Chainable => cy.get(`span[${this.labelLocator}]`),
+    label: (): Chainable<JQuery<HTMLElement>> => cy.get(`span[${this.labelLocator}]`),
   };
 
   public testToggleButtonIsEnabled(): ThemeToggleTestPage {

@@ -1,7 +1,7 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { API_BASE_URL, CommonService } from './common.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Message } from '../../messages/modals/message.model';
+import { IMessage } from '../../messages/modals/message.model';
 import { Observable, take } from 'rxjs';
 
 @Injectable({
@@ -17,18 +17,18 @@ export class MessageService extends CommonService {
     super(http, baseUrl);
   }
 
-  getMessages(): Observable<Array<Message>> {
+  getMessages(): Observable<Array<IMessage>> {
     let url = this.baseUrl + '/posts';
-    return this.http.get<Array<Message>>(url).pipe(take(20));
+    return this.http.get<Array<IMessage>>(url).pipe(take(20));
   }
 
-  getMessage(id: number): Observable<Message> {
-    let url = `${this.baseUrl}/posts/${id}`;
-    return this.http.get<Message>(url);
+  getMessage(id: number): Observable<IMessage> {
+    let url: string = `${this.baseUrl}/posts/${id}`;
+    return this.http.get<IMessage>(url);
   }
 
-  addMessage(message: Message): Observable<Object> {
-    let url = this.baseUrl + '/posts';
+  addMessage(message: IMessage): Observable<Object> {
+    let url: string = this.baseUrl + '/posts';
 
     let options = {
       headers: new HttpHeaders({

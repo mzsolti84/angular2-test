@@ -1,6 +1,6 @@
-import { Message } from './modals/message.model';
+import { IMessage } from './modals/message.model';
 
-export const MESSAGES: Array<Message> = [
+export const MESSAGES: Array<IMessage> = [
   {
     userId: 1,
     id: 1,

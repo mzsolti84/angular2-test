@@ -7,6 +7,6 @@ import { IToMother } from '../interfaces/to-mother.interface';
   styleUrl: './parent.component.scss',
 })
 export class ParentComponent {
-  public name = 'Zsolti';
+  public name: string = 'Zsolti';
   public obj!: IToMother;
 }

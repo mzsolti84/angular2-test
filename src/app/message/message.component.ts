@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Message } from '../messages/modals/message.model';
+import { IMessage } from '../messages/modals/message.model';
 import { MessageService } from '../shared/services/message.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MessageService } from '../shared/services/message.service';
   styleUrl: './message.component.scss',
 })
 export class MessageComponent implements OnInit {
-  model!: Message;
+  model!: IMessage;
   messageId = 1;
 
   constructor(
